@@ -55,6 +55,49 @@ The Store Intelligence system processes raw anonymized CCTV footage to generate 
 
 ```
 
+structure diagram.
+
+Purplle-vibesense-Store-Intelligence
+│
+├── app
+│   ├── main.py
+│   ├── metrics.py
+│   ├── funnel.py
+│   ├── anomalies.py
+│   ├── heatmap.py
+│   └── ingestion.py
+│
+├── pipeline
+│   ├── detect.py
+│   ├── tracker.py
+│   ├── emit.py
+│   ├── state.py
+│   └── zones.py
+│
+├── dashboard
+│   ├── React Frontend
+│   └── Analytics UI
+│
+├── data
+│   ├── store_layout.json
+│   ├── events_test.jsonl
+│   └── retail datasets
+│
+├── scripts
+│   └── seed_events.py
+│
+├── tests
+│   └── Unit Tests
+│
+├── docs
+│   ├── DESIGN.md
+│   └── CHOICES.md
+│
+├── Dockerfile
+├── docker-compose.yml
+└── requirements.txt
+
+
 ## 4. Quick start
 Clone and run — one command is all you need:
 ```bash
