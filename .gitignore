@@ -1,0 +1,52 @@
+# Python
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.venv/
+venv/
+*.egg-info/
+
+# Environment
+.env
+
+# Database (generated at runtime)
+store_intelligence.db
+*.db
+data/store_intelligence.db
+data/*.db
+
+# Generated data
+data/cctv_footage/
+data/events.jsonl
+
+# Model weights (downloaded at runtime, ~6.5MB)
+yolov8n.pt
+
+# Test/Coverage artifacts
+.coverage
+htmlcov/
+
+# Node / Dashboard build artifacts
+node_modules/
+dashboard/node_modules/
+dist/
+dashboard/dist/
+npm-debug.log*
+
+# Logs
+*.log
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Implementation guide and scoring (internal)
+IMPLEMENTATION.md
+score.md
+DETAIL.md
+detail.md

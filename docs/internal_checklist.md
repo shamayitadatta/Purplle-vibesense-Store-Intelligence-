@@ -1,0 +1,23 @@
+- [ ] Requirements locked
+- [ ] Required endpoints listed:
+  - POST /events/ingest
+  - GET /stores/{id}/metrics
+  - GET /stores/{id}/funnel
+  - GET /stores/{id}/heatmap
+  - GET /stores/{id}/anomalies
+  - GET /health
+- [ ] Required event types listed:
+  - ENTRY
+  - EXIT
+  - ZONE_ENTER
+  - ZONE_EXIT
+  - ZONE_DWELL
+  - BILLING_QUEUE_JOIN
+  - BILLING_QUEUE_ABANDON
+  - REENTRY
+- [ ] Acceptance gate confirmed:
+  - docker compose up starts API
+  - README explains detection pipeline
+  - /events/ingest accepts events
+  - /stores/STORE_BLR_002/metrics returns valid JSON
+  - DESIGN.md and CHOICES.md exist and >250 words

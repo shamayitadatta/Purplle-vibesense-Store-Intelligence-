@@ -1,0 +1,53 @@
+name: store-intelligence
+
+services:
+  api:
+    container_name: store-intelligence-api
+    image: store-intelligence-api:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      APP_ENV: ${APP_ENV:-development}
+      DATABASE_URL: ${DATABASE_URL:-sqlite:///./data/store_intelligence.db}
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:5173}
+      STALE_FEED_MINUTES: ${STALE_FEED_MINUTES:-10}
+      POS_DATA_PATH: ${POS_DATA_PATH:-data/files/Brigade_Bangalore_10_April_26.csv}
+    volumes:
+      - ./data:/app/data
+    healthcheck:
+      test: ["CMD", "python", "-c",
+             "import urllib.request; urllib.request.urlopen('http://localhost:8000/health', timeout=5)"]
+      interval: 5s
+      timeout: 10s
+      retries: 12
+      start_period: 10s
+
+  seeder:
+    container_name: store-intelligence-seeder
+    build:
+      context: ./scripts
+      dockerfile: Dockerfile.seeder
+    environment:
+      API_BASE: ${SEED_API_BASE:-http://api:8000}
+      STORE_ID: ${SEED_STORE_ID:-STORE_BLR_002}
+      SEED_FORCE: ${SEED_FORCE:-0}
+    depends_on:
+      api:
+        condition: service_healthy
+    restart: "no"
+
+  dashboard:
+    container_name: store-intelligence-dashboard
+    image: store-intelligence-dashboard:latest
+    build:
+      context: ./dashboard
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    environment:
+      VITE_API_BASE: ${VITE_API_BASE:-http://localhost:8000}
+    depends_on:
+      - api

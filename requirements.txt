@@ -1,0 +1,14 @@
+fastapi
+uvicorn[standard]
+pydantic
+pydantic-settings
+sqlalchemy
+python-dotenv
+pytest
+pytest-cov
+httpx
+python-json-logger
+pandas
+numpy
+opencv-python
+ultralytics

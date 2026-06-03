@@ -1,0 +1,72 @@
+{
+  "stores": [
+    {
+      "store_id": "STORE_BLR_002",
+      "source_store_id": "ST1008",
+      "store_name": "Brigade_Bangalore",
+      "open_hours": {
+        "start": "10:00",
+        "end": "22:00"
+      },
+      "cameras": [
+        {
+          "camera_id": "CAM_ENTRY_01",
+          "type": "entry",
+          "zones": []
+        },
+        {
+          "camera_id": "CAM_1",
+          "type": "floor",
+          "zones": ["ENTRY", "SKINCARE", "MAKEUP", "FRAGRANCE", "BILLING"]
+        },
+        {
+          "camera_id": "CAM_2",
+          "type": "floor",
+          "zones": ["ENTRY", "SKINCARE", "MAKEUP", "FRAGRANCE", "BILLING"]
+        },
+        {
+          "camera_id": "CAM_3",
+          "type": "floor",
+          "zones": ["ENTRY", "SKINCARE", "MAKEUP", "FRAGRANCE", "BILLING"]
+        },
+        {
+          "camera_id": "CAM_4",
+          "type": "floor",
+          "zones": ["ENTRY", "SKINCARE", "MAKEUP", "FRAGRANCE", "BILLING"]
+        },
+        {
+          "camera_id": "CAM_5",
+          "type": "floor",
+          "zones": ["ENTRY", "SKINCARE", "MAKEUP", "FRAGRANCE", "BILLING"]
+        }
+      ],
+      "zones": [
+        {
+          "zone_id": "ENTRY",
+          "polygon": [[0, 0], [1920, 0], [1920, 260], [0, 260]],
+          "sku_zone": null
+        },
+        {
+          "zone_id": "SKINCARE",
+          "polygon": [[0, 260], [640, 260], [640, 1080], [0, 1080]],
+          "sku_zone": "SKINCARE"
+        },
+        {
+          "zone_id": "MAKEUP",
+          "polygon": [[640, 260], [1280, 260], [1280, 1080], [640, 1080]],
+          "sku_zone": "MAKEUP"
+        },
+        {
+          "zone_id": "FRAGRANCE",
+          "polygon": [[1280, 260], [1920, 260], [1920, 720], [1280, 720]],
+          "sku_zone": "FRAGRANCE"
+        },
+        {
+          "zone_id": "BILLING",
+          "polygon": [[1280, 720], [1920, 720], [1920, 1080], [1280, 1080]],
+          "sku_zone": "POS"
+        }
+      ]
+    }
+  ]
+}
